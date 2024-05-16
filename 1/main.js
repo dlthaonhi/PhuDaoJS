@@ -172,3 +172,31 @@ function makeString(str) {
 }
 
 bai8();
+
+function bai11() {
+    const btn = document.querySelector('.bai11 button');
+    const input1 = document.querySelector('.bai11 input.input1');
+    const input2 = document.querySelector('.bai11 input.input2');
+    
+    let value;
+    let result = document.querySelector('.bai11 .result');
+    btn.addEventListener('click', function () {
+        value = sameValueTwoArray (input1.value, input2.value);
+        console.log(input1.value);
+        console.log(typeof(input1.value));
+        console.log((value));
+        result.innerText = value;
+
+    })
+}
+
+function sameValueTwoArray(str1,str2) {
+    let array1 = str1.split(',');
+    let array2 = str2.split(',');
+
+    return array1.filter((element1) => {
+        if (array2.includes(element1)) return element1
+    });
+}
+
+bai11();
