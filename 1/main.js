@@ -200,3 +200,70 @@ function sameValueTwoArray(str1,str2) {
 }
 
 bai11();
+
+function bai12() {
+    const btn = document.querySelector('.bai12 button');
+    const input1 = document.querySelector('.bai12 input.input1');
+    const input2 = document.querySelector('.bai12 input.input2');
+    
+    let value;
+    let result = document.querySelector('.bai12 .result');
+    btn.addEventListener('click', function () {
+        value = newArrayfromTwoArray (input1.value, input2.value);
+        console.log(input1.value);
+        console.log(typeof(input1.value));
+        console.log((value));
+        result.innerText = value;
+
+    })
+}
+
+function newArrayfromTwoArray(str1,str2) {
+    let array1 = str1.split(',');
+    let array2 = str2.split(',');
+    array1=array1.concat(array2);
+
+    let result = [];
+    array1.forEach((element1) => {
+        if (!result.includes(element1)) {
+            result.push(element1);
+        }
+    });
+    return result;
+}
+
+bai12();
+
+function bai13() {
+    const btn = document.querySelector('.bai13 button');
+    const input1 = document.querySelector('.bai13 input.input1');
+    const input2 = document.querySelector('.bai13 input.input2');
+    
+    let value;
+    let result = document.querySelector('.bai13 .result');
+    btn.addEventListener('click', function () {
+        value = differValueTwoArray (input1.value, input2.value);
+        console.log(input1.value);
+        console.log(typeof(input1.value));
+        console.log((value));
+        result.innerText = value;
+
+    })
+}
+
+function differValueTwoArray(str1,str2) {
+    let array1 = str1.split(',');
+    let array2 = str2.split(',');
+
+    let same = array1.filter((element1) => {
+        if (array2.includes(element1)) return element1
+    });
+
+    array1=array1.concat(array2);
+
+    return array1.filter((element1) => {
+        if (!same.includes(element1)) return element1
+    });
+}
+
+bai13();
