@@ -267,3 +267,60 @@ function differValueTwoArray(str1,str2) {
 }
 
 bai13();
+
+function bai16() {
+    const btn = document.querySelector('.bai16 button');
+    const input = document.querySelector('.bai16 input');
+    
+    let value;
+    let result = document.querySelector('.bai16 .result');
+    btn.addEventListener('click', function () {
+        value = squareOddNumber (input.value);
+        console.log(String(value));
+        result.innerText = value;
+
+    })
+}
+
+function squareOddNumber(str) {
+    let number = str.split(',');
+    number = number.map(element => {
+        return parseInt(element)
+    });
+    number = number.filter(element => {
+        return (element%2 == 1) 
+    })
+    return number.map(element => {
+        return element*element;
+    })
+}
+
+bai16();
+
+function bai17() {
+    const btn = document.querySelector('.bai17 button');
+    const input = document.querySelector('.bai17 input');
+    
+    let value;
+    let result = document.querySelector('.bai17 .result');
+    btn.addEventListener('click', function () {
+        value = nameStartN(input.value);
+        console.log((value));
+        result.innerText = value;
+
+    })
+}
+
+function nameStartN(str) {
+    str = str.split(" ")
+    console.log(str);
+    return str.filter(element => {
+        let firstWord = element.slice(0,1);
+        console.log(firstWord);
+        if (firstWord=='N' || firstWord=='n')
+            return element;
+    })
+    
+}
+
+bai17();
