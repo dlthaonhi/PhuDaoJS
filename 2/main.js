@@ -97,7 +97,7 @@ async function soldOut() {
         const items = resData.data.items;
 
         let productSoldOut = items.filter(item => {
-            return item.variants.some(variant => variant.available === 0);
+            return item.variants.every(variant => variant.available === 0);
         });
         
         const result = document.querySelector('.bai3 .result');
@@ -142,18 +142,18 @@ async function size10() {
         if (productsSize10.length > 0) {
             let listItems = '';
 
-            // productsSize10.forEach(product => {
-            //     let productColor = product.options.
-            //     product.variants.forEach(variant => {
-            //             if (variant.options.some((indexValue, indexName) => {
-            //                  (product.options[indexName].name == "Size" && product.options[indexName].values[indexValue] == "10")
-            //             })) {
-            //                 listItems += `<li>${product.title} 
-            //                 <p> Color: ${optionValue}, Price: ${variant.price}</p></li>`;
-            //             }
+            productsSize10.forEach(product => {
+                let productColor = product.options[indexName].name == "Color";
+                product.variants.forEach(variant => {
+                        if (variant.options.some((indexValue, indexName) => {
+                             (product.options[indexName].name == "Size" && product.options[indexName].values[indexValue] == "10")
+                        })) {
+                            listItems += `<li>${product.title} 
+                            <p> Color: ${optionValue}, Price: ${variant.price}</p></li>`;
+                        }
                     
-            //     });
-            // });
+                });
+            });
             result.innerHTML = `<ul>${listItems}</ul>`;
         } else {
             result.innerHTML = "Not found product with size 10";
