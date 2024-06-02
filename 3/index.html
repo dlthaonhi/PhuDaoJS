@@ -10,11 +10,18 @@
     <button class="download"> Tải sản phẩm </button>
 
     <div class="result" style="display: none;">
-        <button>Danh sách sản phẩm</button>
+        <button class="list-product">Danh sách sản phẩm</button>
         <div>
-            <input placeholder="Tìm kiếm sản phẩm">
-            <button>Tìm kiếm</button>
+            <input class="search-input" placeholder="Tìm kiếm sản phẩm">
+            <!-- <button>Tìm kiếm</button> -->
         </div>
+        <div class="options">
+            <h2>Options:</h2>
+            <select class="option-select">
+              <option value="">-- Select an option --</option>
+            </select>
+          </div>
+        <div class="show-result"></div>
     </div>
 
     <script src="./index.js"></script>
